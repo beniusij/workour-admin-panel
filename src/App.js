@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import authClient from "./Auth";
 import NavMenu from "./components/NavMenu";
-import auth0Client from "./Auth";
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
@@ -10,11 +10,11 @@ class App extends Component {
     return (
       <Router>
         {
-          !auth0Client.isAuthenticated() &&
+          (!authClient.isAuthenticated() || !this.state.isAdmin) &&
           <Redirect to='/login' />
         }
         {
-          auth0Client.isAuthenticated() &&
+          authClient.isAuthenticated() &&
           <NavMenu />
         }
         <Route exact path='/' render={Dashboard} />

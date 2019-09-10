@@ -1,12 +1,14 @@
+import React from 'react'
 // import Cookies from 'js-cookie'
 
 // const env = require('dotenv').config()
 // const cookies = new Cookies()
 
-class Auth {
+class Auth extends React.Component {
   // All values set should be loaded from a cookie if present
   // otherwise should default to null or false
-  constructor() {
+  constructor(props) {
+    super(props)
     // Set state
     this.state = ({
       isAuthenticated: false,

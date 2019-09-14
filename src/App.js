@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import authClient from "./Auth";
 import NavMenu from "./components/NavMenu";
-import Login from "./pages/Login"
+import Login from "./pages/Login/Login.js"
 import Dashboard from "./pages/Dashboard"
 import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 

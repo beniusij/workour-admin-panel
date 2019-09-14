@@ -16,7 +16,6 @@ class LoginForm extends Component {
 	}
 
 	handleChange(event) {
-		event.preventDefault()
 		const target = event.target
 		const value = target.value
 		const name = target.name
@@ -26,8 +25,8 @@ class LoginForm extends Component {
 		})
 	}
 
-	handleSubmit() {
-		console.log(this.state.email, this.state.password)
+	handleSubmit(event) {
+		event.preventDefault()
 	}
 
 	render () {
@@ -38,12 +37,12 @@ class LoginForm extends Component {
 			    	<MandatoryInputField 
 			    		name="Email" 
 			    		type="email" 
-			    		onChange={this.handleChange} 
+			    		function={this.handleChange} 
 			    	/>
 			    	<MandatoryInputField 
 			    		name="Password" 
 			    		type="password"
-			    		onChange={this.handleChange} 
+			    		function={this.handleChange} 
 			    	/>
 			      <Button type={'submit'} text={'Sign In'} />
 		    	</form>

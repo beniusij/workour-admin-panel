@@ -8,8 +8,9 @@ const MandatoryInputField = (props) => {
 			<label htmlFor={props.name}>{name}</label>
 			<input 
 				type={props.type} 
-				name={props.name} 
+				name={(props.name).toLowerCase()} 
 				className={styles.input}
+				onChange={props.function}
 				required
 			/>
 		</div>

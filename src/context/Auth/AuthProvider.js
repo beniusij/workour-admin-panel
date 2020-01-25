@@ -1,8 +1,8 @@
 import React from 'react'
 import Cookies from 'universal-cookie'
-import {AUTH_TOKEN, USER_EMAIL} from "../../helpers/constants";
+import {AUTH_TOKEN, USER_EMAIL} from "../../lib/constants";
 import {useMutation} from "@apollo/react-hooks";
-import {loginMutation} from "../../helpers/mutations";
+import {loginMutation} from "../../lib/mutations";
 import {AuthContext} from "./AuthContext";
 import capitalise from "../../helpers/stringUtils";
 import {useHistory} from "react-router-dom";

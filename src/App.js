@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-import NavMenu from "./components/NavMenu";
-import auth0Client from "./Auth";
+import {AuthProvider} from "./context/Auth/AuthProvider";
+import routes from "./config/routes";
+import NavMenu from "./components/navigation/NavMenu";
+import {AuthConsumer} from "./context/Auth/AuthConsumer";
+
+
 
 class App extends Component {
   render() {
     return (
-      <div>
-      {
-        !auth0Client.isAuthenticated() &&
-        <p>Please log in</p>
-      }
-      {
-        auth0Client.isAuthenticated() &&
-        <p>You are authenticated</p>
-      }
-      </div>
+      <AuthProvider>
+        {routes()}
+
+        <AuthConsumer>
+          {({ user }) =>
+            user.isAuth ?? (<NavMenu/>)
+          }
+        </AuthConsumer>
+      </AuthProvider>
     );
   }
 }

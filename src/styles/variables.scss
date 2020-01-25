@@ -1,0 +1,30 @@
+$light-gray: #f9f9f9;
+$medium-gray: #b9b9b9;
+$dark-gray: #696969;
+
+$white: #fff;
+$black: #525252;
+$pitch-black: #000;
+$input-focus: #b1d3f7;
+$link-highlight: #1EAEDB;
+
+$success-print: #077500;
+$success-background: #c9f5c6;
+$failure-print: #8c0d0d;
+$failure-background: #ffdfdf;
+$valid: #07c600;
+$invalid: #f95151;
+
+:export {
+	lightgray: $light-gray;
+	darkgray: $dark-gray;
+	white: $white;
+	black: $black;
+	success-print: $success-print;
+	success-background: $success-background;
+	failure-print: $failure-print;
+	failure-background: $failure-background;
+	valid: $valid;
+	invalid: $invalid;
+	link-highlight: $link-highlight
+}

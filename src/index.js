@@ -1,3 +1,6 @@
+import './styles/skeleton.css'
+import './styles/normalize.css'
+import './App.scss'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';

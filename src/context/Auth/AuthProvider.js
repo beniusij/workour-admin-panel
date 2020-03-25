@@ -1,13 +1,10 @@
 import React from 'react'
-import Cookies from 'universal-cookie'
-import {AUTH_TOKEN, USER_EMAIL} from "../../lib/constants";
-import {useMutation} from "@apollo/react-hooks";
-import {loginMutation} from "../../lib/mutations";
-import {AuthContext} from "./AuthContext";
-import capitalise from "../../helpers/stringUtils";
-import {useHistory} from "react-router-dom";
+import { AuthContext } from "./AuthContext";
+import getCurrentUser from "../../lib/user";
+import isEmpty from "../../helpers/validation";
 
-const cookies = new Cookies()
+const defaultUser = {isAuth: false}
+const defaultError = "Error occurred. Please, contact site admin."
 
 /**
  * AuthProvider sets up the context with right state
@@ -16,92 +13,112 @@ const cookies = new Cookies()
  * @param props
  * @returns {*}
  */
-export const AuthProvider = (props) => {
-  // Initialise user state
-  const [ user, setUser ] = React.useState(initUserState)
-  const history = useHistory()
+export default class AuthProvider extends React.Component {
+  constructor(props) {
+    super(props)
 
-  // Set up mutation
-  const [login, { data, loading, error }] = useMutation(
-    loginMutation,
-    {
-      onCompleted({login}) {
-        // Set cookies
-        cookies.set(AUTH_TOKEN, login.Token, {
-          secure: false,
-          httpOnly: false,
-          sameSite: "none"
-        })
-        cookies.set(USER_EMAIL, login.Email)
+    // This is called on login form submit
+    const authenticate = async (event) => {
+      event.preventDefault()
 
-        history.push('/')
+      this.setState({loading: true})
+
+      const loginForm = {
+        email: document.getElementsByName('Email')[0].value,
+        password: document.getElementsByName('Password')[0].value
       }
+
+      await fetch(`${process.env.REACT_APP_API_URL}/login`, {
+        method: 'POST',
+        body: JSON.stringify(loginForm),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+      }).then((response) => {
+        if (response.status !== 200) {
+          response.json().then((result) => {
+            if (!isEmpty(result.error)) {
+              this.setState({error: result.error})
+            } else {
+              this.setState({error: defaultError})
+            }
+
+          })
+        } else {
+          console.log('Authentication was successful')
+          getCurrentUser().then((data) => {
+            if (data !== null) {
+              data.isAuth = true
+              this.setState({user: data})
+            }
+          })
+          this.props.history.push("/")
+        }
+      }).catch((error) => {
+        console.log(error)
+        this.setState({error: defaultError})
+      })
+
+      this.setState({loading: false})
     }
-  )
 
-  // Set error message if there is one
-  let errMsg
-  if (error) {
-    errMsg = 'Error occurred, try again later.'
+    /**
+     * Callback for logging user out
+     *
+     * @returns {Promise<void>}
+     */
+    const logout = async () => {
+      await fetch(`${process.env.REACT_APP_API_URL}/logout`, {
+        method: 'POST',
+        credentials: 'include'
+      }).catch((error) => {
+        console.log(error)
+      })
 
-    if (typeof error.graphQLErrors !== 'undefined') {
-      errMsg = capitalise(error.graphQLErrors[0].message)
+      this.setState({ user: { isAuth: false }})
+
+      this.props.history.push('/')
+    }
+
+    this.state = {
+      user: defaultUser,
+      error: "",
+      loading: false,
+      authenticate: authenticate,
+      logout: logout
     }
   }
 
-  // This is called on login form submit
-  const authenticate = event => {
-    event.preventDefault()
+  componentDidMount() {
+    getCurrentUser().then((data) => {
+      console.log('Trying to get user')
+      if (data !== null && typeof data.message === "undefined") {
+        data.isAuth = true
+      } else {
+        data = {isAuth: false}
+      }
 
-    const emailInput = document.getElementsByName('Email')[0]
-    const pswInput = document.getElementsByName('Password')[0]
-
-    login({
-      variables: {
-        email: emailInput.value,
-        password: pswInput.value,
+      if (this.state.user.isAuth !== data.isAuth) {
+        this.setState({ user: data})
       }
     })
   }
 
-  // Update user state in context if data is available & that's not done yet
-  if (typeof data !== "undefined" && !user.isAuth) {
-    setUser({
-      isAuth: !!data.login.Token,
-      email: data.login.Email
-    })
-  }
 
-  /**
-   * Callback for logging user out
-   */
-  const logout = () => {
-    setUser({
-      isAuth: false,
-      email: null,
-    })
 
-    cookies.remove(AUTH_TOKEN)
-    cookies.remove(USER_EMAIL)
+  render() {
+    const user = this.state.user
+    const loading = this.state.loading
+    const error = this.state.error
+    const logout = this.state.logout
+    const authenticate = this.state.authenticate
 
-    history.push('/')
-  }
-
-  return (
-    <AuthContext.Provider value={({user, authenticate, logout, loading, errMsg})}>
-      {props.children}
-    </AuthContext.Provider>
-  )
-}
-
-/**
- * Reads cookies and returns any data found
- *
- * @returns {{isAuth: boolean, email: any}}
- */
-function initUserState() {
-  return {
-    isAuth: !!cookies.get(AUTH_TOKEN),
-    email: cookies.get(USER_EMAIL)
+    return (
+      <AuthContext.Provider value={({user, logout, authenticate, loading, error})}>
+        {this.props.children}
+      </AuthContext.Provider>
+    )
   }
 }

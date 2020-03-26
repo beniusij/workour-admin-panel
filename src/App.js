@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import AuthProvider from "./context/Auth/AuthProvider";
 import routes from "./config/routes";
 import NavMenu from "./components/navigation/NavMenu";
-import {AuthConsumer} from "./context/Auth/AuthConsumer";
+import { AuthConsumer } from "./context/Auth/AuthConsumer";
+import { history } from "./lib/history"
 
 
 
 class App extends Component {
   render() {
     return (
-      <AuthProvider>
+      <AuthProvider history={history}>
         {routes()}
 
         <AuthConsumer>

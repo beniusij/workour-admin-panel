@@ -16,6 +16,11 @@ const defaultError = "Error occurred. Please, contact site admin."
 export default class AuthProvider extends React.Component {
   constructor(props) {
     super(props)
+    const history = this.props.history
+
+    const redirectDashboard = () => {
+      if (history) history.push("/")
+    }
 
     // This is called on login form submit
     const authenticate = async (event) => {
@@ -54,7 +59,7 @@ export default class AuthProvider extends React.Component {
               this.setState({user: data})
             }
           })
-          this.props.history.push("/")
+          redirectDashboard()
         }
       }).catch((error) => {
         console.log(error)
@@ -79,7 +84,7 @@ export default class AuthProvider extends React.Component {
 
       this.setState({ user: { isAuth: false }})
 
-      this.props.history.push('/')
+      redirectDashboard()
     }
 
     this.state = {

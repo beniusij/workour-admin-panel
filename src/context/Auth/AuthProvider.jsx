@@ -2,7 +2,7 @@ import React from 'react'
 import { AuthContext } from "./AuthContext";
 import getCurrentUser from "../../lib/user";
 import isEmpty from "../../helpers/validation";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const defaultUser = {isAuth: false}
 const defaultError = "Error occurred. Please, contact site admin."

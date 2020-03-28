@@ -10,7 +10,6 @@ import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { history } from "./lib/history"
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:8080/public'
@@ -22,7 +21,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <BrowserRouter history={history}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </ApolloProvider>,

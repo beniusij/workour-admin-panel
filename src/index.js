@@ -3,13 +3,14 @@ import './styles/normalize.css'
 import './App.scss'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
+import { history } from "./lib/history"
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:8080/public'
@@ -20,7 +21,7 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter history={history}>
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AuthProvider from "./context/Auth/AuthProvider";
+import AuthProvider from "./context/Auth/AuthProvider.jsx";
 import routes from "./config/routes";
 import NavMenu from "./components/navigation/NavMenu";
 import { AuthConsumer } from "./context/Auth/AuthConsumer";
@@ -11,11 +11,14 @@ class App extends Component {
   render() {
     return (
       <AuthProvider history={history}>
-        {routes()}
+        { routes() }
 
         <AuthConsumer>
-          {({ user }) =>
-            user.isAuth ?? (<NavMenu/>)
+          {
+            ({ user }) => (
+              user.isAuth &&
+              <NavMenu />
+            )
           }
         </AuthConsumer>
       </AuthProvider>

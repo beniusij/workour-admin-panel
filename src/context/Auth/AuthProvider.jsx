@@ -49,10 +49,8 @@ export default class AuthProvider extends React.Component {
             } else {
               this.setState({error: defaultError})
             }
-
           })
         } else {
-          console.log('Authentication was successful')
           getCurrentUser().then((data) => {
             if (data !== null) {
               data.isAuth = true
@@ -62,7 +60,7 @@ export default class AuthProvider extends React.Component {
           redirectDashboard()
         }
       }).catch((error) => {
-        console.log(error)
+        console.error(error)
         this.setState({error: defaultError})
       })
 
@@ -79,7 +77,7 @@ export default class AuthProvider extends React.Component {
         method: 'POST',
         credentials: 'include'
       }).catch((error) => {
-        console.log(error)
+        console.error(error)
       })
 
       this.setState({ user: { isAuth: false }})
@@ -98,7 +96,6 @@ export default class AuthProvider extends React.Component {
 
   componentDidMount() {
     getCurrentUser().then((data) => {
-      console.log('Trying to get user')
       if (data !== null && typeof data.message === "undefined") {
         data.isAuth = true
       } else {
@@ -110,8 +107,6 @@ export default class AuthProvider extends React.Component {
       }
     })
   }
-
-
 
   render() {
     const user = this.state.user

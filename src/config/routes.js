@@ -1,18 +1,30 @@
 import React from "react";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {Switch, Route, Redirect} from "react-router-dom";
 import Login from "../pages/Login/Login";
-import ProtectedRoute from "../components/navComponents/ProtectedRoute";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import { history } from "../lib/history"
+import { AuthConsumer } from "../context/Auth/AuthConsumer";
 
 const routes = () => (
-  <Router history={history}>
+  <Switch>
     {/* Public routes */}
-    <Route path={'/login'} render={Login} />
+    <Route path="/login">
+      <Login />
+    </Route>
+
+    <AuthConsumer>
+      {
+        ({ user }) => (
+          !user.isAuth &&
+          <Redirect to="/login" />
+        )
+      }
+    </AuthConsumer>
 
     {/* Protected routes */}
-    <ProtectedRoute exact path={'/'} render={Dashboard} />
-  </Router>
+    <Route path="/">
+      <Dashboard/>
+    </Route>
+  </Switch>
 )
 
 export default routes

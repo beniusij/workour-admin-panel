@@ -11,19 +11,19 @@ const routes = () => (
       <Login />
     </Route>
 
+    {/* Protected routes */}
+    <Route exact path="/">
+      <Dashboard/>
+    </Route>
+
     <AuthConsumer>
       {
         ({ user }) => (
           !user.isAuth &&
-          <Redirect to="/login" />
+          <Redirect push to="/login" />
         )
       }
     </AuthConsumer>
-
-    {/* Protected routes */}
-    <Route path="/">
-      <Dashboard/>
-    </Route>
   </Switch>
 )
 

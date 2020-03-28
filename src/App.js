@@ -11,8 +11,6 @@ class App extends Component {
   render() {
     return (
       <AuthProvider history={history}>
-        { routes() }
-
         <AuthConsumer>
           {
             ({ user }) => (
@@ -21,6 +19,8 @@ class App extends Component {
             )
           }
         </AuthConsumer>
+
+        { routes() }
       </AuthProvider>
     );
   }

@@ -2,6 +2,7 @@ import React from 'react'
 import { AuthContext } from "./AuthContext";
 import getCurrentUser from "../../lib/user";
 import isEmpty from "../../helpers/validation";
+import {withRouter} from "react-router-dom";
 
 const defaultUser = {isAuth: false}
 const defaultError = "Error occurred. Please, contact site admin."
@@ -13,13 +14,14 @@ const defaultError = "Error occurred. Please, contact site admin."
  * @param props
  * @returns {*}
  */
-export default class AuthProvider extends React.Component {
+class AuthProvider extends React.Component {
   constructor(props) {
     super(props)
     const history = this.props.history
 
-    const redirectDashboard = () => {
-      if (history) history.push("/")
+    const redirect = (path) => {
+      console.log(`Redirecting to ${path}`)
+      if (history) history.push(path)
     }
 
     // This is called on login form submit
@@ -57,7 +59,7 @@ export default class AuthProvider extends React.Component {
               this.setState({user: data})
             }
           })
-          redirectDashboard()
+          redirect("/")
         }
       }).catch((error) => {
         console.error(error)
@@ -82,7 +84,7 @@ export default class AuthProvider extends React.Component {
 
       this.setState({ user: { isAuth: false }})
 
-      redirectDashboard()
+      redirect("/login")
     }
 
     this.state = {
@@ -122,3 +124,5 @@ export default class AuthProvider extends React.Component {
     )
   }
 }
+
+export default withRouter(AuthProvider)

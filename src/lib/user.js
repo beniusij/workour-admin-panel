@@ -4,7 +4,7 @@
  */
 export default function getCurrentUser() {
   return fetch(
-    `${process.env.REACT_APP_API_URL}/getCurrentUser`, {
+    `${process.env.API_URL}/getCurrentUser`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',

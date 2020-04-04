@@ -101,8 +101,11 @@ class AuthProvider extends React.Component {
       if (data !== null && typeof data.message === "undefined") {
         data.isAuth = true
       } else {
+        console.log(data)
         data = {isAuth: false}
       }
+
+      console.log(data)
 
       if (this.state.user.isAuth !== data.isAuth) {
         this.setState({ user: data})

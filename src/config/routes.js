@@ -11,11 +11,7 @@ const routes = () => (
       <Login />
     </Route>
 
-    {/* Protected routes */}
-    <Route exact path="/">
-      <Dashboard/>
-    </Route>
-
+    {/* All redirects should be placed after public and before protected routes */}
     <AuthConsumer>
       {
         ({ user }) => (
@@ -24,6 +20,11 @@ const routes = () => (
         )
       }
     </AuthConsumer>
+
+    {/* Protected routes */}
+    <Route exact path="/">
+      <Dashboard/>
+    </Route>
   </Switch>
 )
 

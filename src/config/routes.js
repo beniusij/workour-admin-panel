@@ -11,11 +11,6 @@ const routes = () => (
       <Login />
     </Route>
 
-    {/* Protected routes */}
-    <Route exact path="/">
-      <Dashboard/>
-    </Route>
-
     <AuthConsumer>
       {
         ({ user }) => (
@@ -24,6 +19,11 @@ const routes = () => (
         )
       }
     </AuthConsumer>
+
+    {/* Protected routes */}
+    <Route exact path="/">
+      <Dashboard/>
+    </Route>
   </Switch>
 )
 

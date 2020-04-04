@@ -35,7 +35,7 @@ class AuthProvider extends React.Component {
         password: document.getElementsByName('Password')[0].value
       }
 
-      await fetch(`${process.env.API_URL}/login`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: 'POST',
         body: JSON.stringify(loginForm),
         headers: {
@@ -75,7 +75,7 @@ class AuthProvider extends React.Component {
      * @returns {Promise<void>}
      */
     const logout = async () => {
-      await fetch(`${process.env.API_URL}/logout`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/logout`, {
         method: 'POST',
         credentials: 'include'
       }).catch((error) => {
@@ -101,8 +101,11 @@ class AuthProvider extends React.Component {
       if (data !== null && typeof data.message === "undefined") {
         data.isAuth = true
       } else {
+        console.log(data)
         data = {isAuth: false}
       }
+
+      console.log(data)
 
       if (this.state.user.isAuth !== data.isAuth) {
         this.setState({ user: data})

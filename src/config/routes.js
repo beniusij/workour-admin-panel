@@ -11,6 +11,7 @@ const routes = () => (
       <Login />
     </Route>
 
+    {/* All redirects should be placed after public and before protected routes */}
     <AuthConsumer>
       {
         ({ user }) => (

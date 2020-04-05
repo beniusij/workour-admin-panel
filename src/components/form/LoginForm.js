@@ -10,7 +10,7 @@ function LoginForm() {
     <AuthConsumer>
       {({error, authenticate, loading}) => (
         <div className={styles.formContainer} >
-          <h2 className={styles.formTitle}>Sign In</h2>
+          <h2 className={styles.formTitle}>Log In</h2>
 
           {
             error &&

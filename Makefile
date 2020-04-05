@@ -8,8 +8,7 @@ build:
 start:
 	@docker run -it\
 	 -v ${PWD}/src:/app/src\
-	 -p 3001:3000\
-	 --rm --name=workour_admin_panel\
+	 -p 3001:3000 --rm\
 	 workour_admin_panel
 
 clean:

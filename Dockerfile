@@ -4,11 +4,8 @@ FROM node:12.8.1-alpine
 RUN mkdir app
 WORKDIR /app
 
-# Copy package.json
-COPY ./package.json .
-
-# Copy yarn.lock
-COPY ./yarn.lock .
+# Copy package.json and yarn.lock
+COPY ./package.json ./yarn.lock ./
 
 # Install node modules
 RUN yarn install

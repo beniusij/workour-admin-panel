@@ -21,11 +21,11 @@ $invalid: #f95151;
 	--dark-gray: $dark-gray;
 	--white: $white;
 	--black: $black;
-	success-print: $success-print;
-	success-background: $success-background;
-	failure-print: $failure-print;
-	failure-background: $failure-background;
-	valid: $valid;
-	invalid: $invalid;
-	link-highlight: $link-highlight
+	--success-print: $success-print;
+	--success-background: $success-background;
+	--failure-print: $failure-print;
+	--failure-background: $failure-background;
+	--valid: $valid;
+	--invalid: $invalid;
+	--link-highlight: $link-highlight
 }

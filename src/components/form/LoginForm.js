@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../button/Button.js'
+import Button from '../Button/Button'
 import InputField from '../field/InputField.js'
 import styles from './Form.module.scss'
 import Notification from "../notification/Notification";

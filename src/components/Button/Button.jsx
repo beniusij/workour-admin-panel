@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Button.module.scss'
 
-const Button = (props) => {
+const Index = (props) => {
 
   return (
     <button
@@ -14,4 +14,4 @@ const Button = (props) => {
   )
 }
 
-export default Button
+export default Index

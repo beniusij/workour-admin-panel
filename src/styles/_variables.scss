@@ -15,11 +15,12 @@ $failure-background: #ffdfdf;
 $valid: #07c600;
 $invalid: #f95151;
 
-:export {
-	lightgray: $light-gray;
-	darkgray: $dark-gray;
-	white: $white;
-	black: $black;
+:root {
+	--light-gray: $light-gray;
+	--medium-gray: $medium-gray;
+	--dark-gray: $dark-gray;
+	--white: $white;
+	--black: $black;
 	success-print: $success-print;
 	success-background: $success-background;
 	failure-print: $failure-print;

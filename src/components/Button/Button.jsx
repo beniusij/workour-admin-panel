@@ -16,12 +16,14 @@ const Button = (props) => {
 
 Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  text: PropTypes.string.isRequired
 }
 
 Button.defaultProps = {
   type: 'button',
-  disabled: false
+  disabled: false,
+  text: 'FooBar!'
 }
 
 export default Button

@@ -1,10 +1,11 @@
 import React from 'react'
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "./auth-context";
 import getCurrentUser from "../../lib/user";
 import isEmpty from "../../helpers/validation";
 import { withRouter } from "react-router-dom";
+import PropTypes from 'prop-types';
 
-const defaultUser = {isAuth: false}
+const defaultUser = { isAuth: false }
 const defaultError = "Error occurred. Please, contact site admin."
 
 /**
@@ -28,7 +29,7 @@ class AuthProvider extends React.Component {
     const authenticate = async (event) => {
       event.preventDefault()
 
-      this.setState({loading: true})
+      this.setState({ loading: true })
 
       const loginForm = {
         email: document.getElementsByName('Email')[0].value,
@@ -63,10 +64,10 @@ class AuthProvider extends React.Component {
         }
       }).catch((error) => {
         console.error(error)
-        this.setState({error: defaultError})
+        this.setState({ error: defaultError })
       })
 
-      this.setState({loading: false})
+      this.setState({ loading: false })
     }
 
     /**
@@ -75,7 +76,7 @@ class AuthProvider extends React.Component {
      * @returns {Promise<void>}
      */
     const logout = async () => {
-      await fetch(`${process.env.REACT_APP_API_URL}/logout`, {
+      await fetch(`${this.props.endpoint}/logout`, {
         method: 'POST',
         credentials: 'include'
       }).catch((error) => {
@@ -121,11 +122,22 @@ class AuthProvider extends React.Component {
     const authenticate = this.state.authenticate
 
     return (
-      <AuthContext.Provider value={({user, logout, authenticate, loading, error})}>
+      <AuthContext.Provider value={({ user, logout, authenticate, loading, error })}>
         {this.props.children}
       </AuthContext.Provider>
     )
   }
+}
+
+AuthProvider.propTypes = {
+  history: PropTypes.object.isRequired,
+  endpoint: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired
+}
+
+AuthProvider.defaultTypes = {
+  history: {},
+  endpoint: ''
 }
 
 export default withRouter(AuthProvider)

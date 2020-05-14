@@ -1,5 +1,6 @@
 import React from 'react'
-import styles from './InputField.module.scss'
+import styles from './input-field.module.scss'
+import PropTypes from 'prop-types'
 
 const InputField = (props) => {
 	return (
@@ -14,10 +15,19 @@ const InputField = (props) => {
 				type={props.type} 
 				name={props.name} 
 				className={styles.input}
-				attributes={props.attributes}
 			/>
 		</div>
 	)
+}
+
+InputField.propTypes = {
+	name: PropTypes.string.isRequired,
+	type: PropTypes.oneOf(['email', 'password', 'number', 'reset', 'text', 'url'])
+}
+
+InputField.defaultTypes = {
+	name: 'Input field',
+	type: 'text'
 }
 
 export default InputField

@@ -1,0 +1,15 @@
+.formControl {
+	margin-bottom: 5px;
+}
+
+.input {
+	width: 100%;
+	
+	&:focus {
+		border-color: var(--input-focus) !important;
+	}	
+}
+
+.label {
+	margin-bottom: 5px;
+}

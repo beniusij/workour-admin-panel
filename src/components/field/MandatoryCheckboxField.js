@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './InputField.module.scss'
+import styles from './Field.module.scss'
 
 const MandatoryCheckboxField = (props) => {
 	const label = props.name + "*"

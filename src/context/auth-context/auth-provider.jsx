@@ -1,6 +1,6 @@
 import React from 'react'
 import { AuthContext } from "./auth-context";
-import getCurrentUser from "../../lib/user";
+import { getCurrentUser } from "../../lib/user-service";
 import isEmpty from "../../helpers/validation";
 import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';

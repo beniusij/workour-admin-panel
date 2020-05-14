@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@bit/beniusij.ourworkout.button'
 import InputField from '../field/input-field/input-field'
 import styles from './Form.module.scss'
-import Notification from "../notification/Notification";
+import Notification from "../notification/notification";
 import {AuthConsumer} from "../../context/auth-context/auth-consumer";
 
 function LoginForm() {

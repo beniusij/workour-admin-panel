@@ -1,5 +1,3 @@
-@import '../../styles/variables';
-
 @mixin message-box {
   margin: 10px auto;
   padding: 10px 20px;
@@ -13,13 +11,13 @@
 .success {
   @include message-box;
 
-  color: $success-print;
-  background-color: $success-background;
+  color: var(--success-print);
+  background-color: var(--success-background);
 }
 
 .failure {
   @include message-box;
 
-  color: $failure-print;
-  background-color: $failure-background;
+  color: var(--failure-print);
+  background-color: var(--failure-background);
 }

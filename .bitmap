@@ -19,5 +19,23 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "beniusij.ourworkout/input-field@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/components/field/input-field/input-field.js",
+                "test": false,
+                "name": "input-field.js"
+            },
+            {
+                "relativePath": "src/components/field/input-field/input-field.module.scss",
+                "test": false,
+                "name": "input-field.module.scss"
+            }
+        ],
+        "mainFile": "src/components/field/input-field/input-field.js",
+        "trackDir": "src/components/field/input-field",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "version": "14.7.6"
 }

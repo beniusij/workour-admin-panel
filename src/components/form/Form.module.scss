@@ -1,10 +1,9 @@
-@import '../../styles/variables';
 @import '../../styles/mediaQueries.scss';
 
 .formContainer {
 	width: 300px;
 	padding: 20px 30px;
-	background-color: $white;
+	background-color: var(--white);
 
 	position: absolute;
 	top: 50%;

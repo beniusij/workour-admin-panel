@@ -25,7 +25,7 @@ InputField.propTypes = {
 	type: PropTypes.oneOf(['email', 'password', 'number', 'reset', 'text', 'url'])
 }
 
-InputField.defaultTypes = {
+InputField.defaultProps = {
 	name: 'Input field',
 	type: 'text'
 }

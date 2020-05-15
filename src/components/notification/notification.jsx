@@ -5,7 +5,8 @@ import PropTypes from 'prop-types'
 const Notification = (props) => {
   return (
     <p
-      className={styles.failure}
+      className={styles[props.type]}
+      type={props.type}
     >
       {props.message}
     </p>
@@ -13,11 +14,13 @@ const Notification = (props) => {
 }
 
 Notification.propTypes = {
-  message: PropTypes.string.isRequired
+  message: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['success', 'failure', 'notice', 'warning'])
 }
 
 Notification.defaultProps = {
-  message: "Hi! I'm a notification!"
+  message: "Hi! I'm a notification!",
+  type: "notice"
 }
 
 export default Notification

@@ -21,3 +21,11 @@
   color: var(--failure-print);
   background-color: var(--failure-background);
 }
+
+.notice {
+  @include message-box;
+}
+
+.warning {
+  @include message-box;
+}

@@ -40,9 +40,9 @@
     "beniusij.ourworkout/notification@0.0.1": {
         "files": [
             {
-                "relativePath": "src/components/notification/notification.js",
+                "relativePath": "src/components/notification/notification.jsx",
                 "test": false,
-                "name": "notification.js"
+                "name": "notification.jsx"
             },
             {
                 "relativePath": "src/components/notification/notification.module.scss",
@@ -50,7 +50,7 @@
                 "name": "notification.module.scss"
             }
         ],
-        "mainFile": "src/components/notification/notification.js",
+        "mainFile": "src/components/notification/notification.jsx",
         "trackDir": "src/components/notification",
         "origin": "AUTHORED",
         "exported": true

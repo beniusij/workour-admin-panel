@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './NavLink.module.scss'
+import styles from '../nav-link/nav-link.module.scss'
 
 const NavButton = (props) => {
   return (

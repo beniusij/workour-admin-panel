@@ -1,8 +1,8 @@
 import React from 'react'
 import Button from '@bit/beniusij.ourworkout.button'
-import InputField from '../field/input-field/input-field'
+import InputField from '@bit/beniusij.ourworkout.input-field'
 import styles from './Form.module.scss'
-import Notification from "../notification/notification";
+import Notification from "@bit/beniusij.ourworkout.notification";
 import {AuthConsumer} from "../../context/auth-context/auth-consumer";
 
 function LoginForm() {
@@ -14,7 +14,7 @@ function LoginForm() {
 
           {
             error &&
-            <Notification message={error} />
+            <Notification type={"failure"} message={error} />
           }
 
           <form onSubmit={authenticate}>

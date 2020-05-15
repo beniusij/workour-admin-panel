@@ -1,8 +1,8 @@
 import React from "react";
 import {Switch, Route, Redirect} from "react-router-dom";
-import Login from "../pages/Login/Login";
-import Dashboard from "../pages/Dashboard/Dashboard";
-import { AuthConsumer } from "../context/auth-context/auth-consumer";
+import Login from "../components/pages/login-page/login/login";
+// import Dashboard from "../components/pages/dashboard/dashboard";
+import { AuthConsumer } from "../components/context/auth-context/auth-consumer";
 
 const routes = () => (
   <Switch>
@@ -22,9 +22,9 @@ const routes = () => (
     </AuthConsumer>
 
     {/* Protected routes */}
-    <Route exact path="/">
-      <Dashboard/>
-    </Route>
+    {/*<Route exact path="/">*/}
+    {/*  <Dashboard/>*/}
+    {/*</Route>*/}
   </Switch>
 )
 

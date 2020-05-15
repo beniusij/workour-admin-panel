@@ -1,7 +1,7 @@
 import React from 'react'
 import { AuthContext } from "./auth-context";
-import { getCurrentUser } from "../../lib/user-service";
-import isEmpty from "../../helpers/validation";
+import { getCurrentUser } from "../../../lib/user-service";
+import isEmpty from "../../../helpers/validation";
 import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 
@@ -25,7 +25,7 @@ class AuthProvider extends React.Component {
       if (history) history.push(path)
     }
 
-    // This is called on login form submit
+    // This is called on login-page form submit
     const authenticate = async (event) => {
       event.preventDefault()
 
@@ -85,7 +85,7 @@ class AuthProvider extends React.Component {
 
       this.setState({ user: { isAuth: false }})
 
-      redirect("/login")
+      redirect("/login-page")
     }
 
     this.state = {

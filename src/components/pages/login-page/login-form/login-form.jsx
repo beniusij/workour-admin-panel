@@ -1,9 +1,9 @@
 import React from 'react'
-import Button from '@bit/beniusij.ourworkout.button'
+import Button from '@bit/beniusij.ourworkout.ui-components.button'
 import InputField from '@bit/beniusij.ourworkout.input-field'
-import styles from './Form.module.scss'
+import styles from './login-form.module.scss'
 import Notification from "@bit/beniusij.ourworkout.notification";
-import {AuthConsumer} from "../../context/auth-context/auth-consumer";
+import {AuthConsumer} from "../../../context/auth-context/auth-consumer";
 
 function LoginForm() {
   return (

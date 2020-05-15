@@ -1,6 +1,6 @@
 import React from 'react'
-import LoginForm from '../../components/form/LoginForm.jsx'
-import styles from './Login.module.scss'
+import LoginForm from '../login-form/login-form.jsx'
+import styles from './login.module.scss'
 
 const Login = props => {
   return (

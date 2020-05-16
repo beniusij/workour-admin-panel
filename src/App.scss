@@ -1,8 +1,3 @@
-@import 'styles/variables/_colours.css';
-@import 'styles/mixins/typography';
-@import 'styles/mixins/media-queries.scss';
-
-
 div#root {
   min-height: 100vh;
   background-color: var(--light-gray);

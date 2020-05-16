@@ -127,7 +127,7 @@ module.exports = function(webpackEnv) {
           loader: 'sass-resources-loader',
           options: {
             // Provide path to the file with resources
-            resources: 'src/App.scss',
+            resources: 'src/styles/**/*.scss',
           },
         },
       );

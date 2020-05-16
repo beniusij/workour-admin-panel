@@ -1,8 +1,6 @@
-@import '../../../styles/variables';
-
 .navContainer {
 	padding: 10px 20px;
 	display: flex;
 	justify-content: flex-end;
-	background-color: $white;
+	background-color: var(--white);
 }

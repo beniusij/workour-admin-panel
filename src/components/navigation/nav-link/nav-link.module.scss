@@ -1,15 +1,13 @@
-@import '../../../styles/variables';
-
 @mixin navElement {
 	font-size: 14px;
 	padding: 5px 10px;
 	text-decoration: none;
-	color: $black;
+	color: var(--black);
 	transition: all .1s ease-in-out;
 	text-align: center;
 
 	&:hover {
-		color: $link-highlight;
+		color: var(--link-highlight);
 		transform: scale(1.1);
 	}
 }
@@ -19,9 +17,8 @@
 }
 
 .navButton {
+	@include navElement;
 	border: none;
 	height: auto;
 	letter-spacing: normal;
-
-	@include navElement
 }

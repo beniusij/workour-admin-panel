@@ -91,7 +91,7 @@
     "start-local": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./src/styles/static",
     "build-storybook": "build-storybook"
   },
   "eslintConfig": {

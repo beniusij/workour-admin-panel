@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.scss'
 import AuthProvider from "./components/context/auth-context/auth-provider.jsx";
 import routes from "./config/routes";
 import NavMenu from "./components/navigation/nav/nav";

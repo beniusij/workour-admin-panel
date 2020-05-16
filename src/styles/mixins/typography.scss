@@ -18,3 +18,14 @@ label {
 button {
 	font-size: 14px;
 }
+
+$robot-reg: (
+	s16: 18,
+);
+
+@mixin roboto($size) {
+	font-family: "Roboto", "Helvetica Neue", sans-serif;
+	font-size: $size + px;
+	line-height: map_get($robot-reg, s+$size) + px;
+	font-weight: 400;
+}

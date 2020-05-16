@@ -1,9 +1,11 @@
-@import './styles/typography.scss';
-@import 'styles/variables';
+@import 'styles/variables/_colours.css';
+@import 'styles/mixins/typography';
+@import 'styles/mixins/media-queries.scss';
+
 
 div#root {
   min-height: 100vh;
-  background-color: $light-gray;
+  background-color: var(--light-gray);
 }
 
 form {

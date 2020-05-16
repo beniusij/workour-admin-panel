@@ -1,11 +1,12 @@
 import React from 'react'
 import LoginForm from '../login-form/login-form.jsx'
 import styles from './login.module.scss'
+import SiteTitle from "../../../ui-components/site-title/site-title";
 
 const Login = props => {
   return (
   	<div className={styles.page}>
-  	<h1 className={styles.title}>Workour Admin Panel</h1>
+      <SiteTitle>OurWorkout Admin Panel</SiteTitle>
   		<LoginForm history={props.history} />
     </div>
   )

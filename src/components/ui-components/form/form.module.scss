@@ -1,0 +1,21 @@
+@import '../../../styles/mixins/media-queries';
+
+.formContainer {
+  width: 300px;
+  padding: 20px 30px;
+  background-color: var(--white);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include respond-to(tablet) {
+    padding: 20px 40px;
+    width: 350px;
+  }
+}
+
+.formTitle {
+  text-align: center;
+}

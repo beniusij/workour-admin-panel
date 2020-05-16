@@ -1,4 +1,5 @@
 .btn {
+    @include roboto(14);
     padding: 5px 20px;
     border-radius: 5px;
     background-color: transparent;

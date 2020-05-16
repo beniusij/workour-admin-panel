@@ -8,12 +8,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  @include media('>tablet') {
+  @include media(">tablet") {
     padding: 20px 40px;
     width: 350px;
   }
 }
 
 .formTitle {
+  @include roboto-light(36);
   text-align: center;
 }

@@ -14,11 +14,10 @@ module.exports = {
   stories: ['../src/**/*.stories.js'],
   addons: [
     '@storybook/addon-actions',
-    '@storybook/addon-links'
+    '@storybook/addon-links',
+    '@storybook/addon-viewport/register'
   ],
   webpackFinal: (config) => {
-    // return { ...config, module: { ...config.module, rules: appWebpack.module.rules } };
-
     // Make whatever fine-grained changes you need
     config.module.rules.push({
       test: cssRegex,

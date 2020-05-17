@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from "./form.module.scss";
-import Notification from "@bit/beniusij.ourworkout.notification";
-import InputField from "@bit/beniusij.ourworkout.ui-components.input-field";
-import Button from "@bit/beniusij.ourworkout.ui-components.button";
+import styles from "./form.module.scss"
+import Notification from "@bit/beniusij.ourworkout.notification"
 
 /**
  * Form component
@@ -39,15 +37,6 @@ Form.defaultProps = {
   formFunction: () => { console.log("Form has been submitted!") },
   children: (
     <React.Fragment>
-      <InputField
-        name="Email"
-        type="email"
-      />
-      <InputField
-        name="Password"
-        type="password"
-      />
-      <Button type={'submit'} text={'Sign In'} />
     </React.Fragment>
   )
 }

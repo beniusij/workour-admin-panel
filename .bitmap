@@ -24,7 +24,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "beniusij.ourworkout/form@0.0.4": {
+    "beniusij.ourworkout/form@0.0.6": {
         "files": [
             {
                 "relativePath": "src/components/ui-components/form/form.jsx",

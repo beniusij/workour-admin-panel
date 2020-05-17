@@ -1,9 +1,21 @@
 import React from 'react'
-import { AuthContext } from "./auth-context";
-import { getCurrentUser } from "@bit/beniusij.ourworkout.user-service";
-import isEmpty from "@bit/beniusij.ourworkout.helpers";
-import { withRouter } from "react-router-dom";
-import PropTypes from 'prop-types';
+import { getCurrentUser } from "@bit/beniusij.ourworkout.user-service"
+import isEmpty from "@bit/beniusij.ourworkout.helpers"
+import { withRouter } from "react-router-dom"
+import PropTypes from 'prop-types'
+
+/**
+ * AuthContext holds state information about user
+ * and it's status (logged in or not)
+ *
+ * @type {React.Context<any>}
+ */
+export const AuthContext = React.createContext()
+
+/**
+ * AuthConsumer for those consuming the context
+ */
+export const AuthConsumer = AuthContext.Consumer
 
 const defaultUser = { isAuth: false }
 const defaultError = "Error occurred. Please, contact site admin."

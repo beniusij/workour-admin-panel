@@ -1127,7 +1127,19 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bit/beniusij.ourworkout.input-field@^0.0.3":
+"@bit/beniusij.ourworkout.form@^0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/beniusij.ourworkout.form/-/beniusij.ourworkout.form-0.0.3.tgz#9df6934e326c52cd61c9243c9abcc8dc560985fa"
+  integrity sha1-nfaTTjJsUs1hySQ8mrzI3FYJhfo=
+  dependencies:
+    "@bit/beniusij.ourworkout.input-field" "0.0.3"
+    "@bit/beniusij.ourworkout.mixins" "0.0.1"
+    "@bit/beniusij.ourworkout.notification" "0.0.2"
+    "@bit/beniusij.ourworkout.ui-components.button" "0.0.1"
+    prop-types "^15.7.2"
+    react "^16.9.0"
+
+"@bit/beniusij.ourworkout.input-field@0.0.3", "@bit/beniusij.ourworkout.input-field@^0.0.3":
   version "0.0.3"
   resolved "https://node.bit.dev/beniusij.ourworkout.input-field/-/beniusij.ourworkout.input-field-0.0.3.tgz#2368f3ebe50f4fbe3c30cf54ab799079ce452116"
   integrity sha1-I2jz6+UPT748MM9Uq3mQec5FIRY=
@@ -1135,7 +1147,14 @@
     prop-types "^15.7.2"
     react "^16.9.0"
 
-"@bit/beniusij.ourworkout.notification@^0.0.2":
+"@bit/beniusij.ourworkout.mixins@0.0.1", "@bit/beniusij.ourworkout.mixins@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/beniusij.ourworkout.mixins/-/beniusij.ourworkout.mixins-0.0.1.tgz#64abb58bb8bf91aff798fdfb4265e843502669d4"
+  integrity sha1-ZKu1i7i/ka/3mP37QmXoQ1AmadQ=
+  dependencies:
+    react "^16.9.0"
+
+"@bit/beniusij.ourworkout.notification@0.0.2", "@bit/beniusij.ourworkout.notification@^0.0.2":
   version "0.0.2"
   resolved "https://node.bit.dev/beniusij.ourworkout.notification/-/beniusij.ourworkout.notification-0.0.2.tgz#23481066d6d1cc98ea5520dbcce3b429be9ab01f"
   integrity sha1-I0gQZtbRzJjqVSDbzOO0Kb6asB8=
@@ -1143,7 +1162,7 @@
     prop-types "^15.7.2"
     react "^16.9.0"
 
-"@bit/beniusij.ourworkout.ui-components.button@^0.0.1":
+"@bit/beniusij.ourworkout.ui-components.button@0.0.1", "@bit/beniusij.ourworkout.ui-components.button@^0.0.1":
   version "0.0.1"
   resolved "https://node.bit.dev/beniusij.ourworkout.ui-components.button/-/beniusij.ourworkout.ui-components.button-0.0.1.tgz#cf470e6c47e2c3cbdb9b1d19ee8b655dc898ba51"
   integrity sha1-z0cObEfiw8vbmx0Z7otlXciYulE=

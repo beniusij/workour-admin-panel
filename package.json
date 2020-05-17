@@ -8,7 +8,9 @@
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
     "@babel/core": "7.9.0",
+    "@bit/beniusij.ourworkout.form": "^0.0.3",
     "@bit/beniusij.ourworkout.input-field": "^0.0.3",
+    "@bit/beniusij.ourworkout.mixins": "^0.0.1",
     "@bit/beniusij.ourworkout.notification": "^0.0.2",
     "@bit/beniusij.ourworkout.ui-components.button": "^0.0.1",
     "@svgr/webpack": "4.3.3",
@@ -114,7 +116,14 @@
       "compiler": "bit.envs/compilers/react@1.0.17"
     },
     "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "yarn"
+    "packageManager": "yarn",
+    "overrides": {
+      "src/styles/*": {
+        "env": {
+          "compiler": "-"
+        }
+      }
+    }
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.18",

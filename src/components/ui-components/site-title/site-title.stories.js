@@ -6,4 +6,4 @@ export default {
   component: SiteTitle
 }
 
-export const Default = () => (<SiteTitle>OurWorkout Admin Panel</SiteTitle>)
+export const Default = () => (<SiteTitle/>)

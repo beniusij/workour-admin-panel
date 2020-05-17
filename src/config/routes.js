@@ -2,7 +2,7 @@ import React from "react";
 import {Switch, Route, Redirect} from "react-router-dom";
 import Login from "../components/pages/login-page/login/login";
 // import Dashboard from "../components/pages/dashboard/dashboard";
-import { AuthConsumer } from "../components/context/auth-context/auth-consumer";
+import { AuthConsumer } from "components/context/auth-context/auth-context"
 
 const routes = () => (
   <Switch>

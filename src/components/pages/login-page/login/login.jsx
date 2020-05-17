@@ -1,7 +1,7 @@
 import React from 'react'
-import LoginForm from '../login-form/login-form.jsx'
+import LoginForm from 'components/pages/login-page/login-form/login-form'
 import styles from './login.module.scss'
-import SiteTitle from "../../../ui-components/site-title/site-title";
+import SiteTitle from "components/ui-components/site-title/site-title";
 
 const Login = props => {
   return (

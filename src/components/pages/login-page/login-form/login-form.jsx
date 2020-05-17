@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@bit/beniusij.ourworkout.ui-components.button'
 import InputField from '@bit/beniusij.ourworkout.ui-components.input-field'
 import Form from 'components/ui-components/form/form'
-import {AuthConsumer} from "components/context/auth-context/auth-consumer";
+import { AuthConsumer } from "components/context/auth-context/auth-context"
 
 function LoginForm() {
   return (

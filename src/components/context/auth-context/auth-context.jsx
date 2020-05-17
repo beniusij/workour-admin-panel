@@ -27,7 +27,7 @@ const defaultError = "Error occurred. Please, contact site admin."
  * @param props
  * @returns {*}
  */
-export class AuthProvider extends React.Component {
+export class Auth extends React.Component {
   constructor(props) {
     super(props)
     const history = this.props.history
@@ -139,16 +139,16 @@ export class AuthProvider extends React.Component {
   }
 }
 
-AuthProvider.propTypes = {
+Auth.propTypes = {
   history: PropTypes.object,
   endpoint: PropTypes.string,
   children: PropTypes.any
 }
 
-AuthProvider.defaultTypes = {
+Auth.defaultTypes = {
   history: {},
   endpoint: '',
   children: ''
 }
 
-// export const AuthProvider = Auth
+export const AuthProvider = withRouter(Auth)

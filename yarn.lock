@@ -1127,24 +1127,23 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bit/beniusij.ourworkout.form@^0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/beniusij.ourworkout.form/-/beniusij.ourworkout.form-0.0.3.tgz#9df6934e326c52cd61c9243c9abcc8dc560985fa"
-  integrity sha1-nfaTTjJsUs1hySQ8mrzI3FYJhfo=
+"@bit/beniusij.ourworkout.form@^0.0.4":
+  version "0.0.4"
+  resolved "https://node.bit.dev/beniusij.ourworkout.form/-/beniusij.ourworkout.form-0.0.4.tgz#4ca8a00e369c5ff13d81aa9dbfaa065396910876"
+  integrity sha1-TKigDjacX/E9gaqdv6oGU5aRCHY=
   dependencies:
-    "@bit/beniusij.ourworkout.input-field" "0.0.3"
     "@bit/beniusij.ourworkout.mixins" "0.0.1"
     "@bit/beniusij.ourworkout.notification" "0.0.2"
     "@bit/beniusij.ourworkout.ui-components.button" "0.0.1"
+    "@bit/beniusij.ourworkout.ui-components.input-field" "0.0.4"
     prop-types "^15.7.2"
     react "^16.9.0"
 
-"@bit/beniusij.ourworkout.input-field@0.0.3", "@bit/beniusij.ourworkout.input-field@^0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/beniusij.ourworkout.input-field/-/beniusij.ourworkout.input-field-0.0.3.tgz#2368f3ebe50f4fbe3c30cf54ab799079ce452116"
-  integrity sha1-I2jz6+UPT748MM9Uq3mQec5FIRY=
+"@bit/beniusij.ourworkout.helpers@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/beniusij.ourworkout.helpers/-/beniusij.ourworkout.helpers-0.0.1.tgz#a48a42ad985f09a899f0ccbb295858dbf3418648"
+  integrity sha1-pIpCrZhfCaiZ8My7KVhY2/NBhkg=
   dependencies:
-    prop-types "^15.7.2"
     react "^16.9.0"
 
 "@bit/beniusij.ourworkout.mixins@0.0.1", "@bit/beniusij.ourworkout.mixins@^0.0.1":
@@ -1168,6 +1167,21 @@
   integrity sha1-z0cObEfiw8vbmx0Z7otlXciYulE=
   dependencies:
     prop-types "^15.7.2"
+    react "^16.9.0"
+
+"@bit/beniusij.ourworkout.ui-components.input-field@0.0.4", "@bit/beniusij.ourworkout.ui-components.input-field@^0.0.4":
+  version "0.0.4"
+  resolved "https://node.bit.dev/beniusij.ourworkout.ui-components.input-field/-/beniusij.ourworkout.ui-components.input-field-0.0.4.tgz#c36e13d30f13f61dc3e56872e18bcfbc9daa79f5"
+  integrity sha1-w24T0w8T9h3D5Why4YvPvJ2qefU=
+  dependencies:
+    prop-types "^15.7.2"
+    react "^16.9.0"
+
+"@bit/beniusij.ourworkout.user-service@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/beniusij.ourworkout.user-service/-/beniusij.ourworkout.user-service-0.0.1.tgz#c2c9de4a1d0fab424a2916233136cbdb56b2f9c0"
+  integrity sha1-wsneSh0Pq0JKKRYjMTbL21ay+cA=
+  dependencies:
     react "^16.9.0"
 
 "@cnakazawa/watch@^1.0.3":

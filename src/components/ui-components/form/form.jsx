@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from "./form.module.scss";
 import Notification from "@bit/beniusij.ourworkout.notification";
-import InputField from "@bit/beniusij.ourworkout.input-field";
+import InputField from "@bit/beniusij.ourworkout.ui-components.input-field";
 import Button from "@bit/beniusij.ourworkout.ui-components.button";
 
 /**

@@ -1,7 +1,7 @@
 import React from 'react'
 import { AuthContext } from "./auth-context";
-import { getCurrentUser } from "../../../lib/user-service";
-import isEmpty from "../../../helpers/validation";
+import { getCurrentUser } from "@bit/beniusij.ourworkout.user-service";
+import isEmpty from "@bit/beniusij.ourworkout.helpers";
 import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 
@@ -137,7 +137,8 @@ AuthProvider.propTypes = {
 
 AuthProvider.defaultTypes = {
   history: {},
-  endpoint: ''
+  endpoint: '',
+  children: {}
 }
 
 export default withRouter(AuthProvider)

@@ -1,3 +1,9 @@
+import React from 'react'
+
+export default function UserService(props) {
+  return (<p>Placeholder</p>)
+}
+
 /**
  * Fetches current user from backend server using the cookie set
  * @returns {Promise<*>}

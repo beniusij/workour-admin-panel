@@ -1,5 +1,5 @@
 import React from 'react'
-import { getCurrentUser } from "@bit/beniusij.ourworkout.user-service"
+import { getCurrentUser } from "lib/user-service"
 import isEmpty from "@bit/beniusij.ourworkout.helpers"
 import { withRouter } from "react-router-dom"
 import PropTypes from 'prop-types'
@@ -17,8 +17,17 @@ export const AuthContext = React.createContext()
  */
 export const AuthConsumer = AuthContext.Consumer
 
+const LOGIN_ROUTE = "/login"
+const HOME_ROUTE = "/"
 const defaultUser = { isAuth: false }
 const defaultError = "Error occurred. Please, contact site admin."
+
+const redirect = (history, path) => {
+  if (history) {
+    console.info(`Redirecting to ${path}`)
+    history.push(path)
+  }
+}
 
 /**
  * AuthProvider sets up the context with right state
@@ -31,11 +40,6 @@ export class Auth extends React.Component {
   constructor(props) {
     super(props)
     const history = this.props.history
-
-    const redirect = (path) => {
-      console.log(`Redirecting to ${path}`)
-      if (history) history.push(path)
-    }
 
     // This is called on login-page form submit
     const authenticate = async (event) => {
@@ -70,9 +74,9 @@ export class Auth extends React.Component {
             if (data !== null) {
               data.isAuth = true
               this.setState({user: data})
+              redirect(history, HOME_ROUTE)
             }
           })
-          redirect("/")
         }
       }).catch((error) => {
         console.error(error)
@@ -97,7 +101,7 @@ export class Auth extends React.Component {
 
       this.setState({ user: { isAuth: false }})
 
-      redirect("/login-page")
+      redirect(history, LOGIN_ROUTE)
     }
 
     this.state = {
@@ -107,21 +111,6 @@ export class Auth extends React.Component {
       authenticate: authenticate,
       logout: logout
     }
-  }
-
-  componentDidMount() {
-    getCurrentUser().then((data) => {
-      if (data !== null && typeof data.message === "undefined") {
-        data.isAuth = true
-      } else {
-        console.log(data)
-        data = {isAuth: false}
-      }
-      
-      if (this.state.user.isAuth !== data.isAuth) {
-        this.setState({ user: data})
-      }
-    })
   }
 
   render() {
@@ -136,6 +125,38 @@ export class Auth extends React.Component {
         {this.props.children}
       </AuthContext.Provider>
     )
+  }
+
+  /**
+   * This runs after component has rendered
+   */
+  componentDidMount() {
+    getCurrentUser().then((data) => {
+      if (typeof data.error !== 'undefined') {
+        data.isAuth = false
+      } else if(typeof data.isAuth === 'undefined') {
+        data.isAuth = true
+      }
+
+      // Update current user state since this can't be done in class
+      // constructor otherwise other components expecting user.isAuth
+      // will fail horrendously
+      if (this.state.user.isAuth !== data.isAuth) {
+        this.setState({ user: data})
+
+        if (this.state.user.isAuth) {
+          let path = window.location.pathname
+
+          if (path === LOGIN_ROUTE) {
+            this.props.history.push(HOME_ROUTE)
+          } else {
+            this.props.history.push(path)
+          }
+        } else {
+          this.props.history.push(LOGIN_ROUTE)
+        }
+      }
+    })
   }
 }
 

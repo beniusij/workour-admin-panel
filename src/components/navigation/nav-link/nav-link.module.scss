@@ -1,0 +1,24 @@
+@mixin navElement {
+	font-size: 14px;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: var(--black);
+	transition: all .1s ease-in-out;
+	text-align: center;
+
+	&:hover {
+		color: var(--link-highlight);
+		transform: scale(1.1);
+	}
+}
+
+.navLink {
+	@include navElement
+}
+
+.navButton {
+	@include navElement;
+	border: none;
+	height: auto;
+	letter-spacing: normal;
+}

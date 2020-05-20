@@ -1,0 +1,23 @@
+@import "~@bit/beniusij.ourworkout.mixins/media-queries";
+@import "~@bit/beniusij.ourworkout.mixins/typography";
+
+.formContainer {
+  width: 300px;
+  padding: 20px 30px;
+  background-color: var(--white);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include media(">tablet") {
+    padding: 20px 40px;
+    width: 350px;
+  }
+}
+
+.formTitle {
+  @include roboto-light(36);
+  text-align: center;
+}

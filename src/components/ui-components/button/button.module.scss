@@ -1,0 +1,18 @@
+.btn {
+    @include roboto(14);
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: transparent;
+
+    &:hover, &:focus {
+        background-color: var(--black);
+        color: var(--white);
+        border-color: var(--black);
+    }
+
+    &[disabled] {
+        background-color: var(--light-gray);
+        color: var(--medium-gray);
+        border-color: var(--medium-gray);
+    }
+}

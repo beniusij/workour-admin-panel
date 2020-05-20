@@ -1,9 +1,8 @@
-@import './styles/typography.scss';
-@import './styles/variables.scss';
+@import 'styles/variables/_colours.css';
 
 div#root {
   min-height: 100vh;
-  background-color: $light-gray;
+  background-color: var(--light-gray);
 }
 
 form {

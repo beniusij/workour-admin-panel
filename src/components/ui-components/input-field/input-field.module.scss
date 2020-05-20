@@ -1,0 +1,18 @@
+@import "~@bit/beniusij.ourworkout.mixins/typography";
+
+.formControl {
+	margin-bottom: 5px;
+}
+
+.input {
+	width: 100%;
+	
+	&:focus {
+		border-color: var(--input-focus) !important;
+	}	
+}
+
+.label {
+	@include roboto-heavy(16);
+	margin-bottom: 5px;
+}

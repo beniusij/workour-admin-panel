@@ -1,5 +1,5 @@
-import './styles/skeleton.css'
-import './styles/normalize.css'
+import './styles/static/skeleton.css'
+import './styles/static/normalize.css'
 import './App.scss'
 import React from 'react';
 import ReactDOM from 'react-dom';

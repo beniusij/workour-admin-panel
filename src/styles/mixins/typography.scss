@@ -1,0 +1,36 @@
+$roboto: (
+	s14: 16,
+	s16: 18,
+	s36: 38,
+);
+
+$stencil: (
+	s40: 42
+);
+
+@mixin roboto($size) {
+	font-family: "Roboto", "Helvetica Neue", sans-serif;
+	font-size: $size + px;
+	line-height: map_get($roboto, s+$size) + px;
+	font-weight: 400;
+}
+
+@mixin roboto-light($size) {
+	font-family: "Roboto", "Helvetica Neue", sans-serif;
+	font-size: $size + px;
+	line-height: map_get($roboto, s+$size) + px;
+	font-weight: 300;
+}
+
+@mixin roboto-heavy($size) {
+	font-family: "Roboto", "Helvetica Neue", sans-serif;
+	font-size: $size + px;
+	line-height: map_get($roboto, s+$size) + px;
+	font-weight: 600;
+}
+
+@mixin stencil($size) {
+	font-family: 'Saira Stencil One', "Roboto", "Helvetica Neue", sans-serif;
+	font-size: $size + px;
+	line-height: map_get($stencil, s+$size) + px;
+}

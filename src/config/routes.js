@@ -1,12 +1,11 @@
 import React from "react";
-import {Switch, Route, Redirect} from "react-router-dom";
-import Login from "../pages/Login/Login";
-import Dashboard from "../pages/Dashboard/Dashboard";
-import { AuthConsumer } from "../context/Auth/AuthConsumer";
+import { Redirect, Route, Switch } from "react-router-dom";
+import Login from "components/pages/login-page/login/login";
+import Dashboard from "components/pages/dashboard/dashboard";
+import { AuthConsumer } from "components/context/auth-context/auth-context"
 
 const routes = () => (
   <Switch>
-    {/* Public routes */}
     <Route path="/login">
       <Login />
     </Route>
@@ -14,17 +13,20 @@ const routes = () => (
     {/* All redirects should be placed after public and before protected routes */}
     <AuthConsumer>
       {
-        ({ user }) => (
-          !user.isAuth &&
-          <Redirect push to="/login" />
-        )
+        ({ user }) => {
+
+          if (!user.isAuth) return <Redirect push to="/login" />
+
+          return (
+            <React.Fragment>
+              <Route exact path="/">
+                <Dashboard/>
+              </Route>
+            </React.Fragment>
+          )
+        }
       }
     </AuthConsumer>
-
-    {/* Protected routes */}
-    <Route exact path="/">
-      <Dashboard/>
-    </Route>
   </Switch>
 )
 

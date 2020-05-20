@@ -12,8 +12,8 @@ function NavMenu() {
           <NavLink to="/">
             Home
           </NavLink>
-          <NavLink to={"/info"}>
-            Information
+          <NavLink to={"/data"}>
+            Data
           </NavLink>
           <NavButton eventFunction={logout}>
             Sign out

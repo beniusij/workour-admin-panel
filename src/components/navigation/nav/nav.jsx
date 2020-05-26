@@ -13,6 +13,10 @@ function Navigation() {
     setShowMenu(!showMenu)
   }
 
+  let linksGroupStyle = showMenu
+    ? styles.linksGroup
+    : styles.linksGroupHidden
+
   return (
     <AuthConsumer>
       {({ logout }) => (
@@ -26,7 +30,7 @@ function Navigation() {
             />
           </div>
 
-          <div className={styles.linksGroup}>
+          <div className={linksGroupStyle}>
             <NavLink to="/">
               Home
             </NavLink>

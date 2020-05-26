@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.scss'
 import { AuthProvider, AuthConsumer } from "./components/context/auth-context/auth-context";
 import routes from "./config/routes";
-import NavMenu from "./components/navigation/nav/nav";
+import Navigation from "./components/navigation/nav/nav";
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
           {
             ({ user }) => (
               user.isAuth &&
-              <NavMenu />
+              <Navigation />
             )
           }
         </AuthConsumer>

@@ -1,6 +1,12 @@
+@import "styles/mixins/media-queries";
+
 .burgerButton {
   padding: 9px 0;
   cursor: pointer;
+
+  @include media(">tablet") {
+    display: none;
+  }
 }
 
 .burgerBarTop, .burgerBarMiddle, .burgerBarBottom {

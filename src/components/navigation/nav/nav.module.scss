@@ -12,33 +12,6 @@
 	width: 100%;
 }
 
-.burgerButton {
-	padding: 9px 0;
-	cursor: pointer;
-}
-
-.burgerBarTop, .burgerBarMiddle, .burgerBarBottom {
-	width: 35px;
-	height: 3px;
-	background-color: var(--black);
-	margin: 6px 0;
-	transition: 0.4s;
-}
-
-.burgerBarTopToggled {
-	-webkit-transform: rotate(-45deg) translate(-6px, 6px);
-	transform: rotate(-45deg) translate(-6px, 6px);
-}
-
-.burgerBarMiddleToggled {
-	opacity: 0;
-}
-
-.burgerBarBottomToggled {
-	-webkit-transform: rotate(45deg) translateY(0px);
-	transform: rotate(45deg) translateY(0px);
-}
-
 .linksGroup {
 	display: none;
 }

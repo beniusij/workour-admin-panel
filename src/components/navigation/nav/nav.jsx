@@ -4,6 +4,7 @@ import styles from './nav.module.scss'
 import { AuthConsumer } from "components/context/auth-context/auth-context"
 import NavButton from "components/navigation/nav-button/nav-button";
 import Logo from "components/ui-components/logo/logo";
+import BurgerButton from "../burger-button/burger-button";
 
 function Navigation() {
   const [showMenu, setShowMenu] = useState(false)
@@ -12,18 +13,6 @@ function Navigation() {
     setShowMenu(!showMenu)
   }
 
-  let topBar = showMenu
-    ? `${styles.burgerBarTop} ${styles.burgerBarTopToggled}`
-    : styles.burgerBarTop
-
-  let middleBar = showMenu
-    ? styles.burgerBarMiddleToggled
-    : styles.burgerBarMiddle
-
-  let bottomBar = showMenu
-    ? `${styles.burgerBarBottom} ${styles.burgerBarBottomToggled}`
-    : styles.burgerBarBottom
-
   return (
     <AuthConsumer>
       {({ logout }) => (
@@ -31,11 +20,10 @@ function Navigation() {
           <div className={styles.controlsGroup}>
             <Logo/>
 
-            <div onClick={toggleMenu} className={styles.burgerButton}>
-              <div className={topBar}></div>
-              <div className={middleBar}></div>
-              <div className={bottomBar}></div>
-            </div>
+            <BurgerButton
+              showMenu={showMenu}
+              toggleMenu={toggleMenu}
+            />
           </div>
 
           <div className={styles.linksGroup}>

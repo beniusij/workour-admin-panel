@@ -1,6 +1,5 @@
 import React from 'react'
 import { getCurrentUser } from "lib/user-service"
-import isEmpty from "@bit/beniusij.ourworkout.helpers"
 import { withRouter } from "react-router-dom"
 import PropTypes from 'prop-types'
 
@@ -63,7 +62,7 @@ export class Auth extends React.Component {
       }).then((response) => {
         if (response.status !== 200) {
           response.json().then((result) => {
-            if (!isEmpty(result.error)) {
+            if (result.error) {
               this.setState({error: result.error})
             } else {
               this.setState({error: defaultError})
@@ -79,11 +78,14 @@ export class Auth extends React.Component {
           })
         }
       }).catch((error) => {
-        console.error(error)
+        console.error(error.error)
         this.setState({ error: defaultError })
       })
 
-      this.setState({ loading: false })
+      this.setState({
+        loading: false,
+        error: ""
+      })
     }
 
     /**

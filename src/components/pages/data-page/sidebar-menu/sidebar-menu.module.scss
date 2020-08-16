@@ -1,0 +1,23 @@
+.container {
+  margin: 0 15px 0 0;
+  float: left;
+}
+
+.list {
+  margin: 0;
+  list-style: none;
+  width: 150px;
+}
+
+.listItem {
+  padding: 10px 25px;
+  margin: 0;
+  cursor: pointer;
+  background-color: var(--dark-gray);
+  color: var(--light-gray);
+
+  &:hover {
+    background-color: var(--medium-gray);
+    color: var(--dark-gray);
+  }
+}

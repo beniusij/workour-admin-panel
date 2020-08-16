@@ -3,6 +3,7 @@ import Table from 'components/ui-components/table/table'
 
 function UsersTable(props) {
   const headers = [
+    "ID",
     "First Name",
     "Last Name",
     "Email"
